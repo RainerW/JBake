@@ -15,6 +15,7 @@ import org.apache.commons.configuration.PropertiesConfiguration;
 import org.apache.commons.io.FileUtils;
 import org.apache.commons.io.IOUtils;
 import org.apache.commons.lang.StringUtils;
+import org.jbake.utils.TestUtils;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Rule;
@@ -54,8 +55,7 @@ public class RendererTest {
 			throw new Exception("Cannot find template folder!");
 		}
 
-		ConfigUtil.reset();
-		config = ConfigUtil.load(new File(this.getClass().getResource("/").getFile()));
+		config = TestUtils.loadTestConfig();
 		Assert.assertEquals(".html", config.getString("output.extension"));
 	}
 	
